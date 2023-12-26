@@ -1,0 +1,152 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7172b1dd-87f4-4cd0-9d89-c51b7caf111c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DDS PIZZA</ID>
+  <Name>DDS PIZZA</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DDS PIZZA</DataSourceID>
+  <Schema>
+    <xs:schema id="DDS_x0020_PIZZA" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DDS_x0020_PIZZA" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="2635c1b0-33d9-44d8-8274-da40defc6566">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DIM_DATE" msprop:DbTableName="DIM_DATE" msprop:FriendlyName="DIM_DATE" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="ab43b35d-d51a-4842-a16b-c9a8e5fbfe5f">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="date_sk" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="date_sk" msprop:DbColumnName="date_sk" msprop:design-time-name="82c60aff-7704-4135-a4a3-0a51493826ef" type="xs:int" />
+                  <xs:element name="date" msprop:FriendlyName="date" msprop:DbColumnName="date" msprop:design-time-name="239357a9-2ef3-41e5-ad8d-3b682a44320e" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="time" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="time" msprop:DbColumnName="time" msprop:design-time-name="e315d313-7fe6-4df7-8769-bf2197bb9a65" type="xs:anyType" minOccurs="0" />
+                  <xs:element name="day" msprop:FriendlyName="day" msprop:DbColumnName="day" msprop:design-time-name="7c17bbe8-4d6c-42fb-9203-bf943413eeea" type="xs:int" minOccurs="0" />
+                  <xs:element name="month" msprop:FriendlyName="month" msprop:DbColumnName="month" msprop:design-time-name="80e917fa-3556-4a70-8579-adba24799396" type="xs:int" minOccurs="0" />
+                  <xs:element name="year" msprop:FriendlyName="year" msprop:DbColumnName="year" msprop:design-time-name="a418d2cd-b12f-46f9-a116-7aa2fefd0154" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DIM_PIZZA" msprop:DbTableName="DIM_PIZZA" msprop:FriendlyName="DIM_PIZZA" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="8266dec1-99e6-4f35-b5ed-59e95bf25cc4">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pizza_sk" msprop:FriendlyName="pizza_sk" msprop:DbColumnName="pizza_sk" msprop:design-time-name="418943a2-c1e7-4086-97d0-431cbcebdc0c" type="xs:int" />
+                  <xs:element name="pizzaid" msprop:FriendlyName="pizzaid" msprop:DbColumnName="pizzaid" msprop:design-time-name="a0457f3a-66fd-4bde-8a9b-18096e3edb71" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="pizzatype" msprop:FriendlyName="pizzatype" msprop:DbColumnName="pizzatype" msprop:design-time-name="a9e36bae-5dbd-46e5-82fb-ba9422476faa" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="pizzacate" msprop:FriendlyName="pizzacate" msprop:DbColumnName="pizzacate" msprop:design-time-name="da9d2bc9-f492-49c3-9f3f-b3cef67c809a" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sourcename" msprop:FriendlyName="sourcename" msprop:DbColumnName="sourcename" msprop:design-time-name="faed16b6-531f-436e-a85b-1ae9e9f499a6" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="datecrea" msprop:FriendlyName="datecrea" msprop:DbColumnName="datecrea" msprop:design-time-name="5fc9c8dd-fadd-45bc-84a7-0653128b567e" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="dateupd" msprop:FriendlyName="dateupd" msprop:DbColumnName="dateupd" msprop:design-time-name="855b748b-442d-4124-9aef-15675387d5cc" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="size" msprop:FriendlyName="size" msprop:DbColumnName="size" msprop:design-time-name="b10e4a13-98ce-460b-aed5-4ff1085578e0" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FACT_ORDERDETAILS" msprop:DbTableName="FACT_ORDERDETAILS" msprop:FriendlyName="FACT_ORDERDETAILS" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="43d44b99-4140-4223-94bf-72576e80589e">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="detail_sk" msprop:FriendlyName="detail_sk" msprop:DbColumnName="detail_sk" msprop:design-time-name="9430703f-9e67-405f-b35c-403a624d4744" type="xs:int" />
+                  <xs:element name="detailID" msprop:FriendlyName="detailID" msprop:DbColumnName="detailID" msprop:design-time-name="b5446cb3-2716-4bf6-8755-99e16ea0be5b" type="xs:int" minOccurs="0" />
+                  <xs:element name="order_id" msprop:FriendlyName="order_id" msprop:DbColumnName="order_id" msprop:design-time-name="e0401ab6-9ed0-4083-96f6-8643bf535fda" type="xs:int" minOccurs="0" />
+                  <xs:element name="pizza_sk" msprop:FriendlyName="pizza_sk" msprop:DbColumnName="pizza_sk" msprop:design-time-name="315628b3-30e8-44cb-b060-7ae126b58eb3" type="xs:int" minOccurs="0" />
+                  <xs:element name="date_sk" msprop:FriendlyName="date_sk" msprop:DbColumnName="date_sk" msprop:design-time-name="b8c421d5-b4b6-4c5d-a269-0b358eea860d" type="xs:int" minOccurs="0" />
+                  <xs:element name="quantity" msprop:FriendlyName="quantity" msprop:DbColumnName="quantity" msprop:design-time-name="8123e950-b57a-4ef1-a6a0-9c29fc31b9ae" type="xs:int" minOccurs="0" />
+                  <xs:element name="total" msprop:FriendlyName="total" msprop:DbColumnName="total" msprop:design-time-name="0f8e94bc-5026-4cf2-8da9-cd4d6d6b714c" type="xs:double" minOccurs="0" />
+                  <xs:element name="sourcename" msprop:FriendlyName="sourcename" msprop:DbColumnName="sourcename" msprop:design-time-name="a625684a-e388-4aea-809f-e040e1c60cd2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="datecrea" msprop:FriendlyName="datecrea" msprop:DbColumnName="datecrea" msprop:design-time-name="63d97400-691d-40ac-8340-d3d3b4c1a148" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="dateupd" msprop:FriendlyName="dateupd" msprop:DbColumnName="dateupd" msprop:design-time-name="16e536fc-2640-475c-b0d0-f7942e0537f5" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_DATE" />
+          <xs:field xpath="date_sk" />
+        </xs:unique>
+        <xs:unique name="dbo_DIM_PIZZA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DIM_PIZZA" />
+          <xs:field xpath="pizza_sk" />
+        </xs:unique>
+        <xs:unique name="dbo_FACT_ORDERDETAILS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FACT_ORDERDETAILS" />
+          <xs:field xpath="detail_sk" />
+        </xs:unique>
+        <xs:keyref name="FK_FACT_ORDERDETAILS_DIM_DATE" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FACT_ORDERDETAILS" />
+          <xs:field xpath="date_sk" />
+        </xs:keyref>
+        <xs:keyref name="FK_FACT_ORDERDETAILS_DIM_PIZZA" refer="dbo_DIM_PIZZA_Constraint1">
+          <xs:selector xpath=".//dbo_FACT_ORDERDETAILS" />
+          <xs:field xpath="pizza_sk" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <DDS_x0020_PIZZA xmlns="" />
+  </Schema>
+</DataSourceView>

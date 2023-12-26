@@ -1,0 +1,75 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>OLAP_PIZZA</Database>
+    <Server>LAPTOP-2QTUV64M\HI</Server>
+    <ConnectionString>Data Source=LAPTOP-2QTUV64M\HI;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>oaMo2qCf0q7gm5FoyvrPSOo6/tQ=18/12/2023 2:48:48 CH18/12/2023 2:46:07 CH</TimeStamp>
+        <ID>
+          <String>DDS PIZZA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>9kZQwtzGdoEpXl/cSSLwecsLubc=18/12/2023 2:46:20 CH18/12/2023 2:46:19 CH</TimeStamp>
+        <ID>
+          <String>DDS PIZZA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EIb/eOvGnnvsigdfHIiYCcouW5k=21/12/2023 7:59:22 SA18/12/2023 2:46:55 CH</TimeStamp>
+        <ID>
+          <String>DIM PIZZA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>acn9WoYZphpuxR5YnOT040XOXqc=21/12/2023 7:59:29 SA18/12/2023 2:46:55 CH</TimeStamp>
+        <ID>
+          <String>DIM DATE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BZSjeTlcr5/KeGA77d2Ix+5J2gU=18/12/2023 2:46:56 CH18/12/2023 2:46:55 CH</TimeStamp>
+        <ID>
+          <String>FACT ORDERDETAILS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>qzIU1dYiGxprscA+Mey08NK7xMU=21/12/2023 8:06:56 SA18/12/2023 2:46:55 CH2jdZ41OcMK6szFa0uNneRmabN/E=21/12/2023 8:06:56 SA18/12/2023 2:46:55 CH</TimeStamp>
+        <ID>
+          <String>DDS PIZZA</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>SEErDnQ4iA15P0O+I/qs/KQnZLo=18/12/2023 2:44:30 CH18/12/2023 2:44:30 CH</TimeStamp>
+      <ID>
+        <String>OLAP_PIZZA</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2023-12-21T01:06:57.763333Z</LastDeployed>
+</DeploymentSnapshot>

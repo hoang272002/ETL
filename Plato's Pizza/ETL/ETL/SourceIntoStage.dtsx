@@ -1,0 +1,2766 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/17/2023 11:58:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-2QTUV64M"
+  DTS:CreatorName="LAPTOP-2QTUV64M\ASUS"
+  DTS:DTSID="{B4CB980F-CE99-4559-89D4-DD60188690D3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1066"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{FCDCCACB-9F50-4C21-9B3B-5A752C9797BC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4B1C14D7-64AA-4538-8340-68E0F64481E9}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\ASUS\Downloads\PIZZA.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}"
+      DTS:ObjectName="LAPTOP-2QTUV64M.STAGE_PIZZA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-2QTUV64M;Initial Catalog=STAGE_PIZZA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}LAPTOP-2QTUV64M.STAGE_PIZZA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF936BDF-5D58-4BC8-A88A-8D63C5D12398}"
+      DTS:ObjectName="LAPTOP-2QTUV64M.STAGE_PIZZA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-2QTUV64M;Initial Catalog=STAGE_PIZZA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{446004E9-0CBC-4466-AD2D-6F383E56B117}"
+      DTS:ObjectName="cet">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">12/18/2023 12:12:30 AM</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{5E64F540-F05E-4DF1-B64D-31222402600D}"
+      DTS:ObjectName="lset">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">12/18/2023 12:12:30 AM</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\order into stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f2054709-0237-418f-812f-5982ebc8d813}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="order into stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\order into stage\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input].Columns[datecrea]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecrea"
+                      lineageId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\order into stage\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &gt;= @[$Package::lset] &amp;&amp; #{Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &lt; @[$Package::cet]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">datecrea &gt;= @[$Package::lset] &amp;&amp; datecrea &lt; @[$Package::cet]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\order into stage\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\order into stage\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\order into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\order into stage\order source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="order source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">orders$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\order into stage\order source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\order into stage\order source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[order_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[date]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[time]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[time]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[time]"
+                      name="time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      dataType="r8"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[date]"
+                      dataType="date"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Output].ExternalColumns[time]"
+                      dataType="date"
+                      name="time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\order into stage\order source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[order_id]"
+                      dataType="r8"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[date]"
+                      dataType="date"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[time]"
+                      dataType="date"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[time]"
+                      name="time" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\order into stage\stage_order"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stage_order"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_order]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\order into stage\stage_order.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedDataType="r8"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedDataType="date"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].Columns[time]"
+                      cachedDataType="date"
+                      cachedName="time"
+                      externalMetadataColumnId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      lineageId="Package\order into stage\order source.Outputs[Excel Source Output].Columns[time]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      dataType="i4"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      dataType="dbTime2"
+                      name="time"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\order into stage\stage_order.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\stage_order.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\stage_order.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\order into stage\stage_order.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\stage_order.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\order into stage\Thêm cột ngày tạo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Thêm cột ngày tạo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\order into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\order into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      name="datecrea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEADD]("SECOND",-10,[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEADD("SECOND",-10,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\order into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\order into stage.Paths[Case 1]"
+              endId="Package\order into stage\stage_order.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\order into stage\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\order into stage.Paths[Derived Column Output]"
+              endId="Package\order into stage\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\order into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\order into stage.Paths[Excel Source Output]"
+              endId="Package\order into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\order into stage\order source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\orderdetail into stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{66c4c98f-d90a-4ad2-a2ad-b57b85d385df}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="orderdetail into stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\orderdetail into stage\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input].Columns[datecrea]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecrea"
+                      lineageId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\orderdetail into stage\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &gt;= @[$Package::lset] &amp;&amp; #{Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &lt; @[$Package::cet]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">datecrea &gt;= @[$Package::lset] &amp;&amp; datecrea &lt; @[$Package::cet]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\orderdetail into stage\orderdetails source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="orderdetails source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">order_detail$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\orderdetail into stage\orderdetails source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[pizza_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[pizza_id]"
+                      length="255"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[pizza_id]"
+                      name="pizza_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_details_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[order_details_id]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_details_id]"
+                      name="order_details_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[pizza_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="pizza_id" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[order_details_id]"
+                      dataType="r8"
+                      name="order_details_id" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[order_id]"
+                      dataType="r8"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[order_details_id]"
+                      dataType="r8"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[order_details_id]"
+                      name="order_details_id" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[order_id]"
+                      dataType="r8"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[pizza_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[pizza_id]"
+                      name="pizza_id" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[quantity]"
+                      dataType="r8"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\orderdetail into stage\stage_orderdetail"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stage_orderdetail"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_order_details]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\orderdetail into stage\stage_orderdetail.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].Columns[pizza_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pizza_id"
+                      externalMetadataColumnId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[pizza_id]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[pizza_id]" />
+                    <inputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedDataType="r8"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="r8"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].Columns[order_details_id]"
+                      cachedDataType="r8"
+                      cachedName="order_details_id"
+                      externalMetadataColumnId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[oderdetail_id]"
+                      lineageId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output].Columns[order_details_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[pizza_id]"
+                      dataType="nText"
+                      name="pizza_id" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      dataType="i4"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input].ExternalColumns[oderdetail_id]"
+                      dataType="i4"
+                      name="oderdetail_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\orderdetail into stage\stage_orderdetail.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\stage_orderdetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\stage_orderdetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\stage_orderdetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\orderdetail into stage\Thêm cột ngày tạo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Thêm cột ngày tạo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\orderdetail into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\orderdetail into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      name="datecrea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEADD]("SECOND",-10,[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEADD("SECOND",-10,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\orderdetail into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\orderdetail into stage.Paths[Case 1]"
+              endId="Package\orderdetail into stage\stage_orderdetail.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\orderdetail into stage\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\orderdetail into stage.Paths[Derived Column Output]"
+              endId="Package\orderdetail into stage\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\orderdetail into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\orderdetail into stage.Paths[Excel Source Output]"
+              endId="Package\orderdetail into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\orderdetail into stage\orderdetails source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\pizza into stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E4257FFE-C7A5-4826-B945-EDCD88666862}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="pizza into stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\pizza into stage\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input].Columns[datecrea]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecrea"
+                      lineageId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizza into stage\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &gt;= @[$Package::lset] &amp;&amp; #{Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &lt; @[$Package::cet]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">datecrea &gt;= @[$Package::lset] &amp;&amp; datecrea &lt; @[$Package::cet]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizza into stage\pizza source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="pizza source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">pizza$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\pizza into stage\pizza source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[pizza_id]"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_id]"
+                      name="pizza_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_type_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[pizza_type_id]"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_type_id]"
+                      name="pizza_type_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[size]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[size]"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[size]"
+                      name="size"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[price]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[price]"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[pizza_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="pizza_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[pizza_type_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="pizza_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[size]"
+                      dataType="wstr"
+                      length="255"
+                      name="size" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].ExternalColumns[price]"
+                      dataType="wstr"
+                      length="255"
+                      name="price" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[pizza_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[pizza_id]"
+                      name="pizza_id" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[pizza_type_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[pizza_type_id]"
+                      name="pizza_type_id" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[size]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[size]"
+                      name="size" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[price]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizza into stage\stage_pizza"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stage_pizza"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_pizza]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\pizza into stage\stage_pizza.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].Columns[pizza_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pizza_id"
+                      externalMetadataColumnId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[pizza_id]"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_id]" />
+                    <inputColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].Columns[pizza_type_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pizza_type_id"
+                      externalMetadataColumnId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[pizza_type_id]"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[pizza_type_id]" />
+                    <inputColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].Columns[size]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="size"
+                      externalMetadataColumnId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[size]" />
+                    <inputColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\pizza into stage\pizza source.Outputs[Excel Source Output].Columns[price]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[pizza_id]"
+                      dataType="nText"
+                      name="pizza_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[pizza_type_id]"
+                      dataType="nText"
+                      name="pizza_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                      dataType="nText"
+                      name="size" />
+                    <externalMetadataColumn
+                      refId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="r8"
+                      name="price" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizza into stage\stage_pizza.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\stage_pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\stage_pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizza into stage\stage_pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\stage_pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizza into stage\Thêm cột ngày tạo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Thêm cột ngày tạo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\pizza into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\pizza into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      name="datecrea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEADD]("SECOND",-10,[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEADD("SECOND",-10,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\pizza into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\pizza into stage.Paths[Case 1]"
+              endId="Package\pizza into stage\stage_pizza.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\pizza into stage\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\pizza into stage.Paths[Derived Column Output]"
+              endId="Package\pizza into stage\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\pizza into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\pizza into stage.Paths[Excel Source Output]"
+              endId="Package\pizza into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\pizza into stage\pizza source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\pizzatype into stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{c010b29f-f6fc-49f0-958e-2a72526c5cb3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="pizzatype into stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\pizzatype into stage\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input].Columns[datecrea]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecrea"
+                      lineageId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizzatype into stage\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &gt;= @[$Package::lset] &amp;&amp; #{Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &lt; @[$Package::cet]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">datecrea &gt;= @[$Package::lset] &amp;&amp; datecrea &lt; @[$Package::cet]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizzatype into stage\pizzatype source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="pizzatype source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">pizza_type$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\pizzatype into stage\pizzatype source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[pizza_type_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[pizza_type_id]"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[pizza_type_id]"
+                      name="pizza_type_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[ingredients]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[ingredients]"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[ingredients]"
+                      name="ingredients"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[pizza_type_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="pizza_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].ExternalColumns[ingredients]"
+                      dataType="wstr"
+                      length="255"
+                      name="ingredients" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[pizza_type_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[pizza_type_id]"
+                      name="pizza_type_id" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ingredients]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ingredients]"
+                      name="ingredients" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizzatype into stage\stage_pizzatype"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stage_pizzatype"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stage_pizza_type]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\pizzatype into stage\stage_pizzatype.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2QTUV64M.STAGE_PIZZA 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].Columns[pizza_type_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pizza_type_id"
+                      externalMetadataColumnId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[pizza_type_id]"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[pizza_type_id]" />
+                    <inputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].Columns[ingredients]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingredients"
+                      externalMetadataColumnId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[ingredients]"
+                      lineageId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output].Columns[ingredients]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[pizza_type_id]"
+                      dataType="nText"
+                      name="pizza_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="nText"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      dataType="nText"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input].ExternalColumns[ingredients]"
+                      dataType="nText"
+                      name="ingredients" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizzatype into stage\stage_pizzatype.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\stage_pizzatype.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\stage_pizzatype.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\stage_pizzatype.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\pizzatype into stage\Thêm cột ngày tạo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Thêm cột ngày tạo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\pizzatype into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\pizzatype into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      name="datecrea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEADD]("SECOND",-10,[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEADD("SECOND",-10,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\pizzatype into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\pizzatype into stage.Paths[Case 1]"
+              endId="Package\pizzatype into stage\stage_pizzatype.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\pizzatype into stage\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\pizzatype into stage.Paths[Derived Column Output]"
+              endId="Package\pizzatype into stage\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\pizzatype into stage\Thêm cột ngày tạo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\pizzatype into stage.Paths[Excel Source Output]"
+              endId="Package\pizzatype into stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\pizzatype into stage\pizzatype source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table stage_order"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{790a3b44-fe0b-4c4d-a24a-6b5677428bdb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table stage_order"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}"
+          SQLTask:SqlStatementSource="truncate table stage_order" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table stage_order_details"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{11cd3aa2-2f02-4894-8c46-d8df612e9848}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table stage_order_details"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}"
+          SQLTask:SqlStatementSource="truncate table stage_order_details" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table stage_pizza"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F559DA1D-DEDB-498E-B35C-6803B9188D19}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table stage_pizza"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}"
+          SQLTask:SqlStatementSource="truncate table stage_pizza" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table stage_pizza_type"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{22c8661d-bf66-41b3-9e40-99f6a989582f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table stage_pizza_type"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0FD800F1-BB8F-4A9E-9B30-FB891673BAF0}"
+          SQLTask:SqlStatementSource="truncate table stage_pizza_type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2901B2FB-C06D-46C2-9DF5-E3AE10F7F0C0}"
+      DTS:From="Package\truncate table stage_pizza"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\pizza into stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2415E6B8-5B09-4E38-9594-84F65ABD0E78}"
+      DTS:From="Package\truncate table stage_pizza_type"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\pizzatype into stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8BDBD03C-C32B-4A0F-B181-01F433AE4B55}"
+      DTS:From="Package\truncate table stage_order"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\order into stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{667A8B47-9172-4FE3-8037-AE5B89B010B4}"
+      DTS:From="Package\truncate table stage_order_details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\orderdetail into stage" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\order into stage"
+          TopLeft="593.571429834986,262.188235153356" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\orderdetail into stage"
+          TopLeft="865.714287557164,262.082352889564" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\pizza into stage"
+          TopLeft="63.5714287067555,250.823529191908" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\pizzatype into stage"
+          TopLeft="327.857143555065,257.705882127052" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\truncate table stage_order"
+          TopLeft="569.285715497574,71.7764706143768" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\truncate table stage_order_details"
+          TopLeft="828.571430335239,72.4352942322673" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\truncate table stage_pizza"
+          TopLeft="39.2857143693434,68.8235293514382" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\truncate table stage_pizza_type"
+          TopLeft="297.857143491202,71.1176469964861" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="139.828571538049,110.423529351438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,140.39999984047"
+              Start="0,0"
+              End="0,132.89999984047">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,132.89999984047" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="412.857143523133,112.717646996486">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,144.988235130566"
+              Start="0,0"
+              End="0,137.488235130566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,137.488235130566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="670.62857266628,113.376470614377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,148.811764538979"
+              Start="0,0"
+              End="0,141.311764538979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.311764538979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="951.542858946201,114.035294232267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,148.047058657297"
+              Start="0,0"
+              End="0,140.547058657297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,140.547058657297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\order into stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\order into stage\Thêm cột ngày tạo"
+          TopLeft="152.142862064802,156.705882173508" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\order into stage\Conditional Split"
+          TopLeft="163.571433517701,249.999999738792" />
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\order into stage\stage_order"
+          TopLeft="177.14286211802,359.35294081941" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\order into stage\order source"
+          TopLeft="166.428576380926,50.4117646196206" />
+        <EdgeLayout
+          Id="Package\order into stage.Paths[Derived Column Output]"
+          TopLeft="238.257147791252,198.305882173509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6941175652831"
+              Start="0,0"
+              End="0,44.1941175652831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1941175652831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\order into stage.Paths[Case 1]"
+          TopLeft="242.55714781786,291.599999738792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.752941080618"
+              Start="0,0"
+              End="0,60.252941080618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.252941080618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,25.349615071559,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\order into stage.Paths[Excel Source Output]"
+          TopLeft="235.485719222864,92.0117646196206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.6941175538879"
+              Start="0,0"
+              End="0,57.1941175538879">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.1941175538879" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\order into stage\stage_order">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\order into stage\order source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\orderdetail into stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\orderdetail into stage\stage_orderdetail"
+          TopLeft="120.142862967387,360.352940804508" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\orderdetail into stage\Conditional Split"
+          TopLeft="124.571434098847,243.999999828198" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\orderdetail into stage\Thêm cột ngày tạo"
+          TopLeft="113.142862645948,150.705882262915" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\orderdetail into stage\orderdetails source"
+          TopLeft="115.428577140886,43.4117647239288" />
+        <EdgeLayout
+          Id="Package\orderdetail into stage.Paths[Excel Source Output]"
+          TopLeft="198.085719893417,85.0117647239288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.6941175389867"
+              Start="0,0"
+              End="0,58.1941175389867">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.1941175389867" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\orderdetail into stage.Paths[Derived Column Output]"
+          TopLeft="199.257148372398,192.305882262915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6941175652831"
+              Start="0,0"
+              End="0,44.1941175652831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1941175652831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\orderdetail into stage.Paths[Case 1]"
+          TopLeft="200.957148533117,285.599999828198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.7529409763097"
+              Start="0,0"
+              End="0,67.2529409763097">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.2529409763097" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,28.8496150194049,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\orderdetail into stage\stage_orderdetail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\orderdetail into stage\orderdetails source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\pizza into stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\pizza into stage\stage_pizza"
+          TopLeft="65.000000138368,334.176470295317" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\pizza into stage\Conditional Split"
+          TopLeft="51.428571538049,224.823529214698" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\pizza into stage\Thêm cột ngày tạo"
+          TopLeft="40.00000008515,131.529411649415" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\pizza into stage\pizza source"
+          TopLeft="54.285714401274,25.2352940955273" />
+        <EdgeLayout
+          Id="Package\pizza into stage.Paths[Excel Source Output]"
+          TopLeft="122.942857243212,66.8352940955273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.6941175538879"
+              Start="0,0"
+              End="0,57.1941175538879">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.1941175538879" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\pizza into stage.Paths[Derived Column Output]"
+          TopLeft="126.1142858116,173.129411649415">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6941175652831"
+              Start="0,0"
+              End="0,44.1941175652831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1941175652831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\pizza into stage.Paths[Case 1]"
+          TopLeft="130.014285838209,266.423529214699">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.7529410806183"
+              Start="0,0"
+              End="0,60.2529410806183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.2529410806183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,25.3496150715592,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\pizza into stage\stage_pizza">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\pizza into stage\pizza source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\pizzatype into stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\pizzatype into stage\stage_pizzatype"
+          TopLeft="439.142858213916,381.352940491584" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\pizzatype into stage\Conditional Split"
+          TopLeft="433.571429494388,246.999999783495" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\pizzatype into stage\Thêm cột ngày tạo"
+          TopLeft="422.142858041489,153.705882218212" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\pizzatype into stage\pizzatype source"
+          TopLeft="424.428572536427,45.4117646941264" />
+        <EdgeLayout
+          Id="Package\pizzatype into stage.Paths[Excel Source Output]"
+          TopLeft="504.285715288958,87.0117646941264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.6941175240856"
+              Start="0,0"
+              End="0,59.1941175240856">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.1941175240856" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\pizzatype into stage.Paths[Derived Column Output]"
+          TopLeft="508.257143767939,195.305882218212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6941175652831"
+              Start="0,0"
+              End="0,44.1941175652831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1941175652831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\pizzatype into stage.Paths[Case 1]"
+          TopLeft="513.357143854152,288.599999783495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92.7529407080889"
+              Start="0,0"
+              End="0,85.2529407080889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85.2529407080889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,37.8496148852945,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\pizzatype into stage\stage_pizzatype">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\pizzatype into stage\pizzatype source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

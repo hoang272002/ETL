@@ -1,0 +1,418 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="30c6ff89-c92d-4192-bbc5-c6e580fa0c6f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DDS PIZZA</ID>
+  <Name>DDS PIZZA</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-12311" scrolltop="-2991" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="33507" y="16320" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DIM_PIZZA" left="5420" top="359" logicalid="6" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="3747" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b0000a30e0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DIM_PIZZA" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="FACT_ORDERDETAILS" left="20" top="0" logicalid="7" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="4466" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b000072110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_FACT_ORDERDETAILS" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DIM_DATE" left="20" top="6866" logicalid="8" controlid="3" masterid="0" hint1="0" hint2="0" width="3000" height="3027" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b0000d30b0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DIM_DATE" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="2720" top="1833" logicalid="9" controlid="4" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_FACT_ORDERDETAILS_DIM_PIZZA]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="16" destattachpoint="17" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5420" y="2232" />
+              <point x="4220" y="2232" />
+              <point x="4220" y="2233" />
+              <point x="3020" y="2233" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline.080.1" left="1121" top="4166" logicalid="10" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="16448250" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_FACT_ORDERDETAILS_DIM_DATE]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="1520" y="6866" />
+              <point x="1520" y="4466" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-12311</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-2991</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="ff1e92e5-17fe-4332-b0b7-0e63939a1ec5">
+      <ID>FACT ORDERDETAILS</ID>
+      <Name>FACT ORDERDETAILS</Name>
+      <DimensionID>FACT ORDERDETAILS</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a8e94423-acd1-4cab-8a98-226ec974b834">
+          <AttributeID>Detail Sk</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e93629ce-3610-4b5b-addb-583177130433">
+          <AttributeID>Pizza Sk</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1604f8b8-3e37-488a-94b3-cd6d8389d9c0">
+          <AttributeID>Date Sk</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="4207a1c3-9639-428f-9f87-ca1d04b998fc">
+      <ID>DIM PIZZA</ID>
+      <Name>DIM PIZZA</Name>
+      <DimensionID>DIM PIZZA</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f5049a33-0f9b-41cb-8e18-3fb94c83c925">
+          <AttributeID>Pizza Sk</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9332ada4-a2ba-4bbd-abcc-46ca4fa6cec3">
+          <AttributeID>Pizzaid</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a4091d8e-c1c2-43ab-a171-9da7484de9c2">
+          <AttributeID>Pizzatype</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0cd522fa-b6ee-4482-9a33-ecbb81ac7099">
+          <AttributeID>Size</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7a0e90d3-2ed8-4be4-83ab-7f02630c0711">
+          <AttributeID>Pizzacate</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="41ddef04-d2e8-4664-b165-8ed959421673">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="12f7b242-54ef-4741-bdb4-df397b1bcd58">
+      <ID>DIM DATE</ID>
+      <Name>DIM DATE</Name>
+      <DimensionID>DIM DATE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="547c3010-41cf-4847-9a54-cc31f9785d01">
+          <AttributeID>Date Sk</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bc82c55c-5e16-43a5-902d-1af234e33bd2">
+          <AttributeID>Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="430cd2d6-23eb-458b-9128-659dd7008298">
+          <AttributeID>Time</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d32e7970-c73d-44c6-a247-bdd2a862d529">
+          <AttributeID>Day</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2315687b-a839-414b-8323-79c478fe4f75">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0011c59a-b181-4051-8da3-64306a4cd553">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="a81875e7-ae6c-4899-8261-d3b572b22ff4">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="e7e6074f-dca3-4a22-a1d7-1a5ea067a407">
+      <ID>FACT ORDERDETAILS</ID>
+      <Name>FACT ORDERDETAILS</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="eae7e2ff-9ec7-45c5-808e-b91a4ba5578b">
+          <ID>Quantity</ID>
+          <Name>Quantity</Name>
+          <Source dwd:design-time-name="7a9dbc4b-bac9-4b30-b585-c0f75242b1b0">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="79d53b96-fae7-4af6-b3ea-cf6ccbe77f7a">
+              <TableID>dbo_FACT_ORDERDETAILS</TableID>
+              <ColumnID>quantity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c8936dcd-590c-4d51-aec5-adefdca6328b">
+          <ID>Total</ID>
+          <Name>Total</Name>
+          <Source dwd:design-time-name="98ef6c3c-295f-4edb-a342-bc98a4eede6e">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="af80619b-77c0-4a8d-9440-9e36056a09d4">
+              <TableID>dbo_FACT_ORDERDETAILS</TableID>
+              <ColumnID>total</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="6fdbbca9-876b-4608-92a9-db2fece9c2a6">
+          <ID>FACT ORDERDETAILS Count</ID>
+          <Name>FACT ORDERDETAILS Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="484a7f7c-c71f-4ee0-a298-5e94bc9a4713">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="06fd4c6c-2db2-4717-8840-40d0a501a7f4">
+              <TableID>dbo_FACT_ORDERDETAILS</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="f1ca08e6-c4de-4847-bb89-2c94f1f4d93a">
+          <CubeDimensionID>FACT ORDERDETAILS</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="7a99ee45-74d9-4aa4-8228-2bcc0920ee04">
+              <AttributeID>Detail Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="40cd0cd9-20e7-498a-9a10-e98a68ac5f37">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6049b805-6441-4379-9a02-94a9ae270798">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>detail_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4c960761-8426-49ab-b434-97edf0fa8c53">
+          <CubeDimensionID>DIM PIZZA</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="dd04abb4-871f-4deb-a8eb-d558e262e711">
+              <AttributeID>Pizza Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="5ce3fb30-43fd-4375-adaf-e9d306dd5862">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8c685794-a831-4196-929a-5699321460dc">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>pizza_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="2f104839-ec0b-402f-a05a-2f155176e59e">
+          <CubeDimensionID>DIM DATE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e518502b-9d18-4033-bd05-fb9069e99bb9">
+              <AttributeID>Date Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8dc410c3-c7aa-4fc6-bdb6-4bfd9070383b">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bfa758f2-b164-4c6a-a97d-3436da5c2eec">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>date_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="e9544d8a-bc2e-4089-8ca1-a8eae3a6c902">
+      <ID>FACT ORDERDETAILS 1</ID>
+      <Name>FACT ORDERDETAILS 1</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="caf91938-200d-4b93-af60-b0b4b48cccd2">
+          <ID>Order Id Distinct Count</ID>
+          <Name>Order Id Distinct Count</Name>
+          <AggregateFunction>DistinctCount</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="9bee6984-d0f4-4b5a-8ff4-7541f070b1e0">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b5e03e09-1a8d-478a-bd3e-5fa89d30d462">
+              <TableID>dbo_FACT_ORDERDETAILS</TableID>
+              <ColumnID>order_id</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="6dacf970-e207-4e7b-bc03-93508172e1fc">
+          <CubeDimensionID>FACT ORDERDETAILS</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0c7a8ade-3ba3-4a7a-83cf-ffdb87bf71c2">
+              <AttributeID>Detail Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8f5342fe-b472-44e3-bd02-4c91db91c55d">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="29d3d78d-8313-4f09-9e3c-0245f4779d56">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>detail_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="18084c33-812a-4b3e-9173-5d4f79fe2581">
+          <CubeDimensionID>DIM PIZZA</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8b99ed40-7784-4553-a4e4-f5bc0aab87a5">
+              <AttributeID>Pizza Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4201dfaf-40f5-41af-bbfa-9e099578f2c9">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9a401b18-6495-4aab-83a5-25f55fd27409">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>pizza_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="90f4cb5a-e7d2-46f9-a80f-86edb6a8cbb1">
+          <CubeDimensionID>DIM DATE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bebd8533-2785-435b-a762-437a5d8d0433">
+              <AttributeID>Date Sk</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e4e02080-e063-40ba-a9cb-994a7d458175">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="88327c56-74ba-46fc-996e-1f77dd75290b">
+                    <TableID>dbo_FACT_ORDERDETAILS</TableID>
+                    <ColumnID>date_sk</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="91bc96a3-e987-4b68-b459-453fad1468e5">
+    <DataSourceViewID>DDS PIZZA</DataSourceViewID>
+  </Source>
+  <MdxScripts>
+    <MdxScript dwd:design-time-name="a88dcb33-d684-4573-9283-c29caf230484">
+      <ID>MdxScript</ID>
+      <Name>MdxScript</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>/*
+The CALCULATE command controls the aggregation of leaf cells in the cube.
+If the CALCULATE command is deleted or modified, the data within the cube is affected.
+You should edit this command only if you manually specify how the cube is aggregated.
+*/
+CALCULATE; </Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+</Cube>

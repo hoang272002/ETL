@@ -1,0 +1,958 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/13/2023 8:55:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-2QTUV64M"
+  DTS:CreatorName="LAPTOP-2QTUV64M\ASUS"
+  DTS:DTSID="{2E4CBE9F-2200-4925-B830-9EFA132776D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1066"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2BB445A0-EF61-4C77-B614-450DBB6DC8DD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D59EF2F1-82F6-4F60-8180-7A293275E9B9}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\ASUS\Downloads\ThoNhiKy.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2QTUV64M.Metadata]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6F7E42CE-EB7A-431C-8867-F549E5C26AC6}"
+      DTS:ObjectName="LAPTOP-2QTUV64M.Metadata">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-2QTUV64M;Initial Catalog=Metadata;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{6F7E42CE-EB7A-431C-8867-F549E5C26AC6}LAPTOP-2QTUV64M.Metadata;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-2QTUV64M.Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{48B02F99-0283-4029-B767-33B58421D2E9}"
+      DTS:ObjectName="LAPTOP-2QTUV64M.Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-2QTUV64M;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{48B02F99-0283-4029-B767-33B58421D2E9}LAPTOP-2QTUV64M.Stage;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{BA264052-8ECF-49C3-9B1E-600132EEED7F}"
+      DTS:ObjectName="cet_tur">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">12/13/2023 9:03:17 AM</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{6A6B3554-E19F-48D6-A54E-3BB871013E98}"
+      DTS:ObjectName="lset_tur">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">12/13/2023 9:03:19 AM</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table Stage_invoice_turkey"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b430a4a8-21bc-412f-9b7a-382b51d06984}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table Stage_invoice_turkey"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{48B02F99-0283-4029-B767-33B58421D2E9}"
+          SQLTask:SqlStatementSource="truncate table Stage_invoice_turkey" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TurSource -&gt; stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d4899c1b-a20f-40f2-8818-294c71153af2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TurSource -&gt; stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TurSource -&gt; stage\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input].Columns[datecrea]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="datecrea"
+                      lineageId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &gt;= @[$Package::lset_tur] &amp;&amp; #{Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]} &lt; @[$Package::cet_tur]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">datecrea &gt;= @[$Package::lset_tur] &amp;&amp; datecrea &lt; @[$Package::cet_tur]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TurSource -&gt; stage\Source invoice turkey"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source invoice turkey"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">invoice$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from city</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TurSource -&gt; stage\Source invoice turkey.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[invoice_no]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_no]"
+                      name="invoice_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[customer_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[payment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[payment]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[payment]"
+                      name="payment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[price]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[price]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[invoice_date]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_date]"
+                      name="invoice_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[shopping_mal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[shopping_mal]"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[shopping_mal]"
+                      name="shopping_mal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[invoice_no]"
+                      dataType="wstr"
+                      length="255"
+                      name="invoice_no" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[payment]"
+                      dataType="wstr"
+                      length="255"
+                      name="payment" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[price]"
+                      dataType="wstr"
+                      length="255"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[invoice_date]"
+                      dataType="date"
+                      name="invoice_date" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].ExternalColumns[shopping_mal]"
+                      dataType="wstr"
+                      length="255"
+                      name="shopping_mal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[invoice_no]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[invoice_no]"
+                      name="invoice_no" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[payment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[payment]"
+                      name="payment" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[quantity]"
+                      dataType="r8"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[price]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[invoice_date]"
+                      dataType="date"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[invoice_date]"
+                      name="invoice_date" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[shopping_mal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[shopping_mal]"
+                      name="shopping_mal" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TurSource -&gt; stage\Stage_invoice_turkey"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stage_invoice_turkey"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stage_invoice_turkey]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-2QTUV64M.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-2QTUV64M.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[age]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[payment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="payment"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[payment]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[payment]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="r8"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[invoice_date]"
+                      cachedDataType="date"
+                      cachedName="invoice_date"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_date]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[invoice_no]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="invoice_no"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[invoice]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[invoice_no]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[cusid]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].Columns[shopping_mal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="shopping_mal"
+                      externalMetadataColumnId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[mall]"
+                      lineageId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output].Columns[shopping_mal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[invoice]"
+                      dataType="nText"
+                      name="invoice" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[cusid]"
+                      dataType="nText"
+                      name="cusid" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      dataType="nText"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      dataType="i4"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[payment]"
+                      dataType="nText"
+                      name="payment" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      dataType="nText"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="r8"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[invoice_date]"
+                      dataType="dbTimeStamp"
+                      name="invoice_date" />
+                    <externalMetadataColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input].ExternalColumns[mall]"
+                      dataType="nText"
+                      name="mall" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Thêm cột ngày tạo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output].Columns[datecrea]"
+                      name="datecrea"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEADD]("second",-10,[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEADD("second",-10,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TurSource -&gt; stage.Paths[Case 1]"
+              endId="Package\TurSource -&gt; stage\Stage_invoice_turkey.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\TurSource -&gt; stage\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\TurSource -&gt; stage.Paths[Derived Column Output]"
+              endId="Package\TurSource -&gt; stage\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\TurSource -&gt; stage.Paths[Excel Source Output]"
+              endId="Package\TurSource -&gt; stage\Thêm cột ngày tạo.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\TurSource -&gt; stage\Source invoice turkey.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{bcfad3d3-606e-439b-92a3-f96800891fbd}"
+      DTS:From="Package\Truncate table Stage_invoice_turkey"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\TurSource -&gt; stage" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\TurSource -&gt; stage"
+          TopLeft="95.833331375485,158.799999312956" />
+        <NodeLayout
+          Size="250.4,41.6"
+          Id="Package\Truncate table Stage_invoice_turkey"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="182.316665687742,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.199999312956"
+              Start="0,0"
+              End="0,49.699999312956">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.699999312956" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TurSource -&gt; stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\TurSource -&gt; stage\Thêm cột ngày tạo"
+          TopLeft="127.619017899173,124.95294026109" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\TurSource -&gt; stage\Conditional Split"
+          TopLeft="129.285684474777,215.086272967647" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\TurSource -&gt; stage\Stage_invoice_turkey"
+          TopLeft="115.380944192984,332.850976072747" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\TurSource -&gt; stage\Source invoice turkey"
+          TopLeft="119.285705684095,30.9529421219466" />
+        <EdgeLayout
+          Id="Package\TurSource -&gt; stage.Paths[Derived Column Output]"
+          TopLeft="207.852351186975,166.55294026109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5333327065574"
+              Start="0,0"
+              End="0,41.0333327065574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0333327065574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TurSource -&gt; stage.Paths[Case 1]"
+          TopLeft="205.33331433388,256.686272967648">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.164703105099"
+              Start="0,0"
+              End="0,68.664703105099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.664703105099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,29.5554960837995,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TurSource -&gt; stage.Paths[Excel Source Output]"
+          TopLeft="208.852361791634,72.5529421219466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.399998139143"
+              Start="0,0"
+              End="0,44.899998139143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.899998139143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TurSource -&gt; stage\Stage_invoice_turkey">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TurSource -&gt; stage\Source invoice turkey">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

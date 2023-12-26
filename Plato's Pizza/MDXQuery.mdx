@@ -1,0 +1,61 @@
+﻿// Total Sales by Pizza Category and Year
+SELECT {[Measures].[Total]} ON 0,
+{nonempty([DIM DATE].[Year].[Year].Members * [DIM PIZZA].[Pizzacate].Members)} ON 1
+FROM [DDS PIZZA];
+
+//Quantity Sold by Pizza Type for a Specific Month
+SELECT {[Measures].[Quantity]} ON 0,
+	nonempty(ORDER (
+		ORDER(
+			[DIM DATE].[Month].[Month].Members * [DIM PIZZA].[Pizzatype].Members,
+			[Measures].[Quantity],
+			BDESC
+		),
+		VAL([DIM DATE].[Month].CurrentMember.MemberValue),
+		BASC
+	))ON 1
+FROM [DDS PIZZA];
+
+// Top 5 Pizzas by Sales in a Specific Year
+SELECT {[Measures].[Quantity],[Total]} ON 0,
+	ORDER(
+		TOPCOUNT([DIM PIZZA].[Pizzatype].[Pizzatype].MEMBERS,
+				5,
+				[Measures].[Total]
+				) * [DIM PIZZA].[Size].MEMBERS,
+				[Measures].[Total],
+				DESC
+		) ON 1
+FROM [DDS PIZZA]
+WHERE [DIM DATE].[Year].[2015];
+
+//Thống kê tổng số hóa đơn order theo ngày,tháng ,năm
+WITH MEMBER [Measures].[OrderCount] AS [Measures].[FACT ORDERDETAILS Count]
+SELECT {[Measures].[OrderCount]} ON 0,
+{[DIM DATE].[Year].[Year] * [DIM DATE].[Month].[Month] * [DIM DATE].[Date].[Date]} ON 1
+FROM [DDS PIZZA];
+
+//Thống kê doanh thu theo từng loại pizza và theo từng tháng trong năm
+SELECT {[Measures].[Total]} ON 0,
+	ORDER (
+		ORDER(
+			[DIM DATE].[Month].[Month].Members * [DIM PIZZA].[Pizzatype].Members,
+			[Measures].[Quantity],
+			BDESC
+		),
+		VAL([DIM DATE].[Month].CurrentMember.MemberValue),
+		BASC
+	)ON 1
+FROM [DDS PIZZA];
+
+//Thống kê số lượng pizza được order theo từng loại pizza và size 
+SELECT {[Measures].[Quantity],[Total]} ON 0,
+	ORDER(
+		TOPCOUNT([DIM PIZZA].[Pizzatype].[Pizzatype].MEMBERS,
+				5,
+				[Measures].[Total]
+				) * [DIM PIZZA].[Size].MEMBERS,
+				[Measures].[Total],
+				BDESC
+		) ON 1
+FROM [DDS PIZZA];

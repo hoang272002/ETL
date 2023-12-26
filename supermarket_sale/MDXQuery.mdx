@@ -1,0 +1,82 @@
+﻿// Tổng doanh thu và số lượng theo chiều phân cấp của Dim Branch và Dim Product
+SELECT NON EMPTY{[Measures].[Total],[Quantity]} ON COLUMNS,
+NON EMPTY {NONEMPTY([DIM BRANCH].[Hierarchy].MEMBERS)*NONEMPTY([DIM PRODUCT].[Hierarchy].MEMBERS)} ON ROWS
+FROM [DDS];
+
+//Tổng doanh thu và số lượng theo  City nhưng slice Source Myanmar (trường hợp có nhiều source)
+SELECT NON EMPTY {[Measures].[Total],[Quantity]} ON COLUMNS,
+NON EMPTY {NONEMPTY([DIM BRANCH].[City].MEMBERS) * NONEMPTY([DIM PRODUCT].[Hierarchy].MEMBERS)} ON ROWS
+FROM [DDS]
+WHERE [FACT INVOICE].[Source Name].[Myanmar];
+
+//Tổng doanh thu và số lượng theo tất cả thành phố và một danh mục xác định
+SELECT {[Measures].[Total],[Quantity]} ON COLUMNS,
+{NONEMPTY([DIM BRANCH].[City].MEMBERS) * [DIM PRODUCT].[Productline].[Productline].[Electronic accessories]} ON ROWS
+FROM [DDS];
+
+// Số lượng đánh giá và avg đánh giá  theo member
+WITH
+	MEMBER [Measures].[Rating Count] AS [Measures].[FACT INVOICE Count]
+SELECT NON EMPTY{[Measures].[Rating Count], [Measures].[avg rating]} ON COLUMNS,
+NONEMPTY({[DIM CUSTYPE].[Customertype].MEMBERS}) ON ROWS
+FROM [DDS]
+WHERE [FACT INVOICE].[Source Name].[Myanmar];
+
+// Số lượng đánh giá và avg đánh giá in each month by gender in specific year (slice)
+WITH
+	MEMBER [Measures].[Rating Count] AS [Measures].[FACT INVOICE Count]
+SELECT {[Measures].[Rating Count], [Measures].[avg Rating]} ON COLUMNS,
+{NONEMPTY([DIM GENDER].[Gender].MEMBERS) * NONEMPTY([DIM DATE].[Month].[Month].MEMBERS)} ON ROWS
+FROM [DDS]
+WHERE [DIM DATE].[Year].[2019];
+
+// Average Rating by Customer Type for Health and Beauty Products in Myanmar Usinge slice
+SELECT {[Measures].[avg rating]} ON COLUMNS,
+{NONEMPTY([DIM CUSTYPE].[Customertype].MEMBERS)} ON ROWS
+FROM [DDS]
+WHERE ([DIM BRANCH].[City].Members, [DIM PRODUCT].[Productline].[Health and beauty]);
+
+// Top 5 product_id sales slice by year
+SELECT NON EMPTY({[Measures].[Total]})
+    ON COLUMNS,
+    NON EMPTY(Generate([DIM PRODUCT].[Productline].[Productline].Members,
+             TopCount({[DIM PRODUCT].[Productline].CurrentMember} * [Dim Product].[Product ID].[Product ID].Members,
+                      5,  
+                      [Measures].[Total]
+                     )
+            ))
+    ON ROWS
+FROM [DDS]
+WHERE [DIM DATE].[Year].[2019];
+
+// số thành viên mua hàng theo ngày tháng năm
+WITH
+	MEMBER [Measures].[Customer Count] AS [Measures].[FACT INVOICE Count]
+
+SELECT NON EMPTY {[DIM DATE].[Year].Members* [Measures].[Customer Count]} ON 0,
+NON EMPTY{
+	
+	[DIM DATE].[Month].[Month].Members * 
+	[DIM DATE].[Date].[Date].Members
+} ON 1
+FROM [DDS];
+
+// Thống kê doanh thu của khách hàng (member, normal) theo ngày tháng năm và theo chi nhánh
+SELECT NON EMPTY {[DIM BRANCH].[City].Members * [DIM CUSTYPE].[Customertype].[Customertype]* [Measures].[Total]} ON 0, 
+{
+	NONEMPTY({
+		[DIM DATE].[Year].[Year] * 
+		[DIM DATE].[Month].[Month] * 
+		[DIM DATE].[Date].[Date]
+	} )
+} ON 1
+FROM [DDS];
+
+// Thống kê số lượng khách hàng thanh toán theo cash, debit,.. ở từng chi nhánh theo từng tháng trong năm
+WITH
+	MEMBER [Measures].[Customer Count] AS [Measures].[FACT INVOICE Count]
+SELECT NON EMPTY{[DIM BRANCH].[City].Members * [DIM PAYMENT].[Payment].[Payment] * [Measures].[Customer Count]} ON 0,
+NON EMPTY{
+	[DIM DATE].[Month].Members
+} ON 1
+FROM [DDS];
